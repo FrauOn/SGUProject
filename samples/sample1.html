@@ -1,0 +1,65 @@
+<div>
+  <!-- Шаблон задачи на время -->
+  <!-- Генерируем задачу -->
+  <script type='text/javascript'>
+    // Создание функции на рандомное целое число
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    var YOUR_HAPPY_NUMBER_DISTANCE = getRandomInt(2); // Случайный выбор метров или километров для расстояния
+    var YOUR_HAPPY_NUMBER_SPEED = getRandomInt(2); // Случайный выбор метров или километров для скорости
+    var S_2 = 'м'
+    var S_S2 = 'км'
+    var V_2 = 'м/с'
+    var V_V2 = 'км/ч'
+    var CountZero_S = ''
+    var CountZero_S_END = CountZero_S
+
+    if (YOUR_HAPPY_NUMBER_DISTANCE == 1) { // Проверка рандома на расстояние
+      S_1 = getRandomInt(2000); // Выпали метры
+      var S_S1 = S_1
+      var S_3 = S_2
+      var S_SS1 = S_S1;
+    } else {
+      var S_1 = getRandomInt(100);
+      var S_S1 = S_1 * 1000; // Выпали километры
+      var S_SS1 = S_S1;
+      var S_3 = S_S2
+    }
+
+    CountZero_S = 0; // Степень для расстояния
+    while (S_S1 % 10 == 0) {
+      S_S1 = Math.floor(S_S1 / 10)
+      CountZero_S += 1
+    }
+
+    if (CountZero_S != 0) {
+      CountZero_S_END = '*10^' + CountZero_S
+    }
+
+    if (YOUR_HAPPY_NUMBER_SPEED == 1) { // Проверка рандома на скорость
+      var V_1 = getRandomInt(99) + 1;
+      var V_V1 = V_1
+      var V_3 = V_V2 // Выпали километры/час
+      var V_V1 = Math.round((V_1 / 3.6) * 100) / 100;
+    } else {
+      var V_1 = getRandomInt(39) + 1;
+      var V_V1 = V_1;
+      var V_3 = V_2 // Выпали метры/секунду
+    }
+    var T_TIME = Math.round((S_SS1 / V_V1) * 100) / 100; // Итоговая формула для времени
+  </script>
+
+  <p> ТЕКСТ ЗАДАЧИ </p>
+  <p>
+<!-- Внутри страницы на необходимые места подставляем скрипты для вывода значений-->
+Из пункта А в пункт В выехал автобус со скоростью <script>document.write(V_1);</script> <script>document.write(V_3);</script>, через сколько приедет автобус если расстояние между пунктами <script>document.write(S_1);</script> <script>document.write(S_3);</script>.
+</p>
+<TABLE BORDER=1 BORDERCOLOR="#000000" BGCOLOR="#FFFFFF" CELLSPACING=0 CELLPADDING=30>
+
+<tr><th>Дано:</th><th> СИ</th> <th> Решение</th></tr> <!--ряд с ячейками заголовков-->
+<tr><td>S= <script>document.write(S_1);</script> <script>document.write(S_3);</script></td><td><script>document.write(S_S1);</script><script>document.write(CountZero_S_END);</script> м</td> <th> t=S/V    </th>      </tr> <!--ряд с ячейками тела таблицы-->
+<tr><td>V= <script>document.write(V_1);</script> <script>document.write(V_3);</script></td> <td><script>document.write(V_V1);</script> м/с</td> <th> t=<script>document.write(S_S1);</script><script>document.write(CountZero_S_END);</script>/<script>document.write(V_V1);</script>=<script>document.write(T_TIME);</script> c    </th> </tr>
+<tr><td>t-?</td><td></td> <th> Ответ: t= <script>document.write(T_TIME);</script> c   </th>   </tr>
+</table>
+</div>
