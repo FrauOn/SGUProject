@@ -1,5 +1,4 @@
 <div>
-  <!-- Шаблон задачи на время -->
   <!-- Генерируем задачу -->
   <script type='text/javascript'>
     // Создание функции на рандомное целое число
@@ -16,12 +15,12 @@
     var CountZero_S_END = CountZero_S
 
     if (YOUR_HAPPY_NUMBER_DISTANCE == 1) { // Проверка рандома на расстояние
-      S_1 = getRandomInt(2000) + 1000; // Выпали метры
+      S_1 = getRandomInt(8000)+2000; // Выпали метры
       var S_S1 = S_1
       var S_3 = S_2
       var S_SS1 = S_S1;
     } else {
-      var S_1 = getRandomInt(90) + 10;
+      var S_1 = getRandomInt(30)+20;
       var S_S1 = S_1 * 1000; // Выпали километры
       var S_SS1 = S_S1;
       var S_3 = S_S2
@@ -38,12 +37,12 @@
     }
 
     if (YOUR_HAPPY_NUMBER_SPEED == 1) { // Проверка рандома на скорость
-      var V_1 = getRandomInt(99) + 1;
+      var V_1 = getRandomInt(30) + 10;
       var V_V1 = V_1
       var V_3 = V_V2 // Выпали километры/час
       var V_V1 = Math.round((V_1 / 3.6) * 100) / 100;
     } else {
-      var V_1 = getRandomInt(39) + 1;
+      var V_1 = getRandomInt(10) + 5;
       var V_V1 = V_1;
       var V_3 = V_2 // Выпали метры/секунду
     }
@@ -53,7 +52,7 @@
   <p> ТЕКСТ ЗАДАЧИ </p>
   <p>
 <!-- Внутри страницы на необходимые места подставляем скрипты для вывода значений-->
-Из пункта А в пункт В выехал автобус со скоростью <script>document.write(V_1);</script> <script>document.write(V_3);</script>, через сколько приедет автобус если расстояние между пунктами <script>document.write(S_1);</script> <script>document.write(S_3);</script>.
+Лодка, со скоростью <script>document.write(V_1);</script> <script>document.write(V_3);</script>, преодолела путь в <script>document.write(S_1);</script> <script>document.write(S_3);</script>. Сколько времени плыла лодка?
 </p>
 <TABLE BORDER=1 BORDERCOLOR="#000000" BGCOLOR="#FFFFFF" CELLSPACING=0 CELLPADDING=30>
 
