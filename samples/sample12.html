@@ -1,0 +1,85 @@
+<div>
+  <!-- Генерируем задачу -->
+  <script type='text/javascript'>
+    // Создание функции на рандомное целое число
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    var YOUR_HAPPY_NUMBER_TIME = getRandomInt(3); // Случайный выбор секунд минут или часов для времени
+    var YOUR_HAPPY_NUMBER_DISTANCE = getRandomInt(2); // Случайный выбор метров или киллометров для расстояния
+    var T_2 = 'мин'
+    var T_T2 = 'сек'
+    var T_T3 = 'час'
+    var S_2 = 'м'
+    var S_S2 = 'км'
+    var CountZero_S = ''
+    var CountZero_S_END = CountZero_S
+    var CountZero_S2 = ''
+    var CountZero_S2_END = CountZero_S2
+
+    if (YOUR_HAPPY_NUMBER_DISTANCE == 1) { // Проверка рандома на расстояние
+      S_1 = getRandomInt(20000) + 10000; // Выпали метры
+      var S_S1 = S_1
+      var S_3 = S_2
+      var S_SS1 = S_S1;
+    } else {
+      var S_1 = getRandomInt(100)+ 10;
+      var S_S1 = S_1 * 1000; // Выпали километры
+      var S_SS1 = S_S1;
+      var S_3 = S_S2
+    }
+
+    CountZero_S = 0; // Степень для расстояния
+    while (S_S1 % 10 == 0) {
+      S_S1 = Math.floor(S_S1 / 10)
+      CountZero_S += 1
+    }
+
+    if (CountZero_S != 0) {
+      CountZero_S_END = '*10^' + CountZero_S
+    }
+
+
+    if (YOUR_HAPPY_NUMBER_TIME == 1) { // Проверка рандома на время
+      T_1 = getRandomInt(94) + 6; // Выпали минуты
+      var T_T1 = T_1 * 60
+      var T_3 = T_2
+      var T_TT1 = T_T1;
+    } else if (YOUR_HAPPY_NUMBER_TIME == 2) {
+      var T_1 = getRandomInt(1000) + 1000;
+      var T_T1 = T_1; // Выпали секунды
+      var T_3 = T_T2
+      var T_TT1 = T_T1;
+    } else {
+      T_1 = getRandomInt(8) + 2; // Выпали часы
+      var T_T1 = T_1 * 60 * 60
+      var T_3 = T_T3
+      var T_TT1 = T_T1;
+    }
+
+    CountZero_S2 = 0; // Степень для расстояния
+    while (T_TT1 % 10 == 0) {
+      T_TT1 = Math.floor(T_TT1 / 10)
+      CountZero_S2 += 1
+    }
+
+    if (CountZero_S2 != 0) {
+      CountZero_S2_END = '*10^' + CountZero_S2
+    }
+
+    var V_SPEED = Math.round((S_SS1 / T_T1) * 100) / 100; // Итоговая формула для времени
+  </script>
+  <p> ТЕКСТ ЗАДАЧИ </p>
+  <p>
+  <!-- Внутри страницы на необходимые места подставляем скрипты для вывода значений-->
+  <!-- Поле для ввода текста задачи-->
+      С какой скоростью двигался поезд, если он проехал <script>document.write(S_1);</script> <script>document.write(S_3);</script> за <script>document.write(T_1);</script> <script>document.write(T_3);</script>.
+  </p>
+  <TABLE BORDER=1 BORDERCOLOR="#000000" BGCOLOR="#FFFFFF" CELLSPACING=0 CELLPADDING=30>
+
+  <tr><th>Дано:</th><th> СИ</th> <th> Решение</th></tr> <!--ряд с ячейками заголовков-->
+  <tr><td>S= <script>document.write(S_1);</script> <script>document.write(S_3);</script></td><td><script>document.write(S_S1);</script><script>document.write(CountZero_S_END);</script> м </td> <th> V=S/t </th></tr> <!--ряд с ячейками тела таблицы-->
+  <tr><td>t= <script>document.write(T_1);</script> <script>document.write(T_3);</script></td><td><script>document.write(T_TT1);</script><script>document.write(CountZero_S2_END);</script> с</td> <th>v= <script>document.write(S_S1);</script><script>document.write(CountZero_S_END);</script>/<script>document.write(T_TT1);</script><script>document.write(CountZero_S2_END);</script>=<script>document.write(V_SPEED);</script> c </th></tr>
+  <tr><td>v-? </td><td> </td> <th>Ответ: v= <script>document.write(V_SPEED);</script> м/c  </th></tr>
+  </table>
+  </div>
